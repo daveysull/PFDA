@@ -18,3 +18,12 @@ Speed of answer in seconds
 AvgTalkDuration
 Satisfaction rating
 
+To do...
+1. Clean Data
+2. EDA
+3. Resolution Rate (All Data)
+4. Resolution Rate (Excluding Unanswered Calls)
+5. Analyse unanswered calls - Put in to categories for time
+6. Based off results maybe t-test / ANOVA to look at the different groups and their resolution rate?
+- Statistic Analysis for the time of day and the rating given
+- Same for the length of calls, will need to make another category for the quickness in calls being finished.

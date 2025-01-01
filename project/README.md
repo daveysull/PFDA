@@ -19,7 +19,8 @@ Table of Contents:
 
 
 
-Introduction : 
+
+1. Introduction : 
 
 This notebook contains my analysis of PWC contact centre data. The original dataset contained 10 columns and 5,000 rows. The dates within the dataset ranged from January 1st to March 31st 2021. The dataset was downloaded from Kaggle, added to a database I created in MySQL and then was connected to via Python.
 

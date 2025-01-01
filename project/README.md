@@ -19,19 +19,19 @@ Table of Contents:
 
 ---
 
-1. Introduction : 
+#### 1. Introduction : 
 
 This notebook contains my analysis of PWC contact centre data. The original dataset contained 10 columns and 5,000 rows. The dates within the dataset ranged from January 1st to March 31st 2021. The dataset was downloaded from Kaggle, added to a database I created in MySQL and then was connected to via Python.
 
-2. Data Preperation :
+#### 2. Data Preperation :
 
 The first step of preperation was creating a database to store the data. This was done through a combination of bash scripts and MySQL queries. Once this was done I took the usual steps of setting the index, creating/dropping columns, dealing with null values, etc.
 
-3. EDA :
+#### 3. EDA :
 
 This part of the notebook is where I explore the data, looking for potential trends through the creation of visuals. I used .info() and .describe() to get a better understanding of the data. The visuals created in this section were boxplots, barcharts, pie charts and a line plot. The most insightful visual was the pie chart which showed that 70% of unresolved issues were due to calls not being answered. The line plot shows how the call volumes can differ substantially day to day. In section 5, a more complex version of this plot is added use plotly.
 
-4. KPI Analysis :
+#### 4. KPI Analysis :
 
 (i) Operational Efficiency - Average Call Duration & Resolution Rate :
 
@@ -49,7 +49,7 @@ During my analysis of customer satisfaction I focused on the satisfaction rating
 The agent performance analysis was a combination of what was done in the Operational Efficiency and Customer Satisfaction sections. These KPI's overlap so it made sense to approach it this way. I created bar charts with agents resolution and satisfaction ratings and then created heat maps adding in the topics to easily identify weak points. I finally looked at the correlation between resolution rate and satisfaction rating and visualized the results. The correlation between the two was 0.54. Which isn't very strong but does show there is a relationship there.
 
 
-5. Advanced / Interactive Visuals : 
+#### 5. Advanced / Interactive Visuals : 
 
 In this section a created multiple interactive visuals using plotly. The first is a stacked bar chart showing Satisfaction Rating by Agent and Topic. 
 
@@ -60,11 +60,11 @@ The third visual is a funnel showing the total calls, answered calls and resolve
 Visuals five and six are bar charts with an animation frame added. Visual five shows the frequncy in call volume day to day for agents where visual six uses .cumsum() to show the cumulative calls by agent.
 
 
-6. Advanced Analysis : 
+#### 6. Advanced Analysis : 
 
 In this section I did ANOVA & Regression analysis using statsmodels. This analysis showed that when it comes to call duration, the topic has close to no impact on it. The only significant difference was for payment related calls which tend to be shorter. It also showed that the speed of answer, call duration and resolved issues had little to no impact on satisfaction rating.
 
-7. Insights and Recommendations (Copy & Paste from Notebook)
+#### 7. Insights (Copy & Paste from Notebook)
 #### Operational Efficiency:
 
 Call Duration: While average call durations are consistent across agents and topics, a deeper analysis revealed that specific agent-topic combinations (e.g., Agent Dan and payment-related calls) contribute disproportionately to longer call durations. These could be targeted for training or process improvement.
@@ -84,7 +84,7 @@ There is a moderate positive correlation (0.54) between resolution rates and sat
 Regression analysis showed that call duration and the speed of answering calls have minimal impact on satisfaction ratings. The main exception is payment-related calls, which are shorter and more efficient.
 ANOVA analysis further supported that topics have little influence on call durations overall.
 
-## Recommendation
+#### Recommendation
 
 1) Unanswered Calls - The biggest issue facing PWC is the volume of unanswered calls, this is impacting their KPIs; Satisfaction Rating and Resolution Rate. I'd recommend hiring additional agents to help handle the call volumes, especially during peak periods. 
 

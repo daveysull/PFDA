@@ -21,79 +21,78 @@ Table of Contents:
 
 #### 1. Introduction : 
 
-This notebook contains my analysis of PWC contact centre data. The goal of this notebook is to identify trends as well as behaviours that may be impacting PWCs contact centre performance. The original dataset contained 10 columns and 5,000 rows. The dates within the dataset ranged from January 1st to March 31st 2021. The dataset was downloaded from Kaggle, added to a database I created in MySQL and then was connected to through Python.
+This notebook contains the analysis of PWC contact centre data. The goal of this notebook is to identify trends as well as behaviours that may impact PWC’s contact centre performance. The original dataset contains 10 columns and 5,000 rows. The dates within the dataset range from January 1st to March 31st, 2021. The dataset is downloaded from Kaggle, added to a database created in MySQL, and then connected to through Python.
 
 #### 2. Data Preperation :
 
-The first step of preperation was creating a database to store the data. I did so in MySQL, added the excel data to the database via bash scripts and then loaded the data to my notebook using Python. A detailed description of what was done is in my notebook. Once this was done I took the usual steps of setting the index, creating/dropping columns, dealing with null values, etc.
+The first step of preparation is creating a database to store the data. This is done in MySQL, and the Excel data is added to the database via bash scripts before the data is loaded to the notebook using Python. A detailed description of what is done is included in the notebook. Once this is completed, the usual steps of setting the index, creating/dropping columns, dealing with null values, etc., are taken.
 
 #### 3. EDA :
 
-This part of the notebook is where I explore the data, looking for potential trends through the creation of visuals. I used .info() and .describe() to get a better understanding of the data. The visuals created in this section were boxplots, barcharts, pie charts and a line plot. The most insightful visual was the pie chart which showed that 70% of unresolved issues were due to calls not being answered. The line plot shows how the call volumes can differ substantially day to day. In section 5, a more complex version of this plot is added use plotly.
+This part of the notebook explores the data, looking for potential trends through the creation of visuals. The methods .info() and .describe() are used to better understand the data. The visuals created in this section include boxplots, bar charts, pie charts, and a line plot. The most insightful visual is the pie chart, which shows that 70% of unresolved issues are due to calls not being answered. The line plot shows how call volumes differ substantially day-to-day. In Section 5, a more complex version of this plot is added using Plotly.
 
 #### 4. KPI Analysis :
 
 (i) Operational Efficiency - Average Call Duration & Resolution Rate :
 
-In this section I look at average call duration and resolution rate to see if there are areas for improving performance. For call duration when looking at Agents and Topics they are pretty consistent across the board. Call duration by topic or agent are all within 10 seconds of the overall average. For that reason I dove deeper into the data looking at the combinations of Agents and Topics where the call duartion is above the total average. This shows specific topics agents can focus on to improve their numbers and close calls out quicker. I looked at outliers to narrow down the 5% of longest calls. That is more of a reference point again for potential areas to focus on improving. For example Agent Dan is in that top 5% 11 times for payment related calls.
+In this section, the average call duration and resolution rate are analyzed to identify areas for performance improvement. Call durations, when analyzed by agents and topics, are consistent across the board. Call durations by topic or agent are all within 10 seconds of the overall average. Further analysis focuses on the combinations of agents and topics where call durations exceed the total average. This reveals specific topics agents can focus on to improve their numbers and close calls quicker. Outliers are examined to narrow down the 5% longest calls, serving as a reference for potential areas of improvement. For instance, Agent Dan appears in the top 5% 11 times for payment-related calls.
 
-With resolution rate I discovered in the EDA section that a high number of these unresolved issues is due to calls not being answered. When looking at resolution rates by Agent and Topic, similar to avg. call duration the results are quite even with the average resolution rate being 73%. I've highlighted in the analysis agent and topic combinations where PWC could focus on improving. Finally I reviewed the correlation between call volume and unanswered calls which was 0.9988 meaning that there is a strong positive relationship between the two variables.
+For resolution rates, the EDA reveals that a high number of unresolved issues are due to calls not being answered. When examining resolution rates by agent and topic, results are similarly consistent, with an average resolution rate of 73%. Combinations of agents and topics are highlighted where PWC can focus on improvement. The correlation between call volume and unanswered calls is 0.9988, indicating a strong positive relationship between the two variables.
 
 
 (ii) Customer Satisfaction - Satisfaction Rating :
 
-During my analysis of customer satisfaction I focused on the satisfaction rating agents get for each call. This rating ranges from 0-5. PWCs average rating was 2.76 which isn't great. Unanswered calls were bringing this average down as an unaswered call automatically gets a 0. The satisfaction rating when an issue was resolved was 3.40. I copied the same framework for this analysis as I did for operational efficientcy, getting the combinations of agents and topics that were below average. I finally added another line chart showing the satisfaction ratings overtime. For the majority of January the satisfaction ratings were above the average and then dipped substantially for February and March. With additional context or data I would be able to tell why this is happening. 
+During the analysis of customer satisfaction, the focus is on the satisfaction rating agents receive for each call. This rating ranges from 0-5. PWC’s average rating is 2.76, which is suboptimal. Unanswered calls lower this average, as they automatically receive a rating of 0. Resolved calls have a significantly higher average rating of 3.40. The same framework used for operational efficiency is applied, identifying combinations of agents and topics below average. A line chart is added to show satisfaction ratings over time. For most of January, satisfaction ratings are above average but dip substantially in February and March. Additional context or data would be needed to explain this trend.
 
 (iii) Agent Performance - Resolution Rate, Satisfaction Rate & Call Volume Handled
 
-The agent performance analysis was a combination of what was done in the Operational Efficiency and Customer Satisfaction sections. These KPI's overlap so it made sense to approach it this way. I created bar charts with agents resolution and satisfaction ratings and then created heat maps adding in the topics to easily identify weak points. I finally looked at the correlation between resolution rate and satisfaction rating and visualized the results. The correlation between the two was 0.54. Which isn't very strong but does show there is a relationship there.
+The agent performance analysis combines elements from the Operational Efficiency and Customer Satisfaction sections. Overlapping KPIs justify this approach. Bar charts visualize agents’ resolution and satisfaction ratings, and heat maps include topics to identify weak points. Finally, the correlation between resolution rate and satisfaction rating is reviewed and visualized. The correlation is 0.54, indicating a moderate positive relationship between the two metrics.
 
 
 #### 5. Advanced / Interactive Visuals : 
 
-In this section a created multiple interactive visuals using plotly. The first is a stacked bar chart showing Satisfaction Rating by Agent and Topic. 
+In this section, multiple interactive visuals are created using Plotly. The first is a stacked bar chart showing Satisfaction Rating by Agent and Topic.
 
-Next is a normal bar chart showing resolved issues by agent. This visual shows that Jim resolved the most issues at 485 with Stuart last at 424. 
+Next, a standard bar chart shows resolved issues by agent. This visual reveals that Jim resolves the most issues at 485, while Stuart resolves the least at 424.
 
-The third visual is a funnel showing the total calls, answered calls and resolved calls. This is a straightforward visual that gives quick and easy to understand data. 
+The third visual is a funnel chart showing the total calls, answered calls, and resolved calls. This is a straightforward visual for quick and easy data understanding.
 
-Visuals five and six are bar charts with an animation frame added. Visual five shows the frequncy in call volume day to day for agents where visual six uses .cumsum() to show the cumulative calls by agent.
+Visuals five and six are bar charts with animation frames. Visual five shows the frequency of call volume day-to-day for agents, while visual six uses .cumsum() to display cumulative calls by agent.
 
 
 #### 6. Advanced Analysis : 
 
-In this section I did ANOVA & Regression analysis using statsmodels. This analysis showed that when it comes to call duration, the topic has close to no impact on it. The only significant difference was for payment related calls which tend to be shorter. It also showed that the speed of answer, call duration and resolved issues had little to no impact on satisfaction rating.
+In this section, ANOVA and regression analysis are conducted using Statsmodels. The analysis reveals that call duration is minimally impacted by the topic, except for payment-related calls, which tend to be shorter. Additionally, the speed of answering calls, call duration, and resolved issues have little impact on satisfaction ratings.
 
 #### 7. Insights (Copy & Paste from Notebook)
 #### Operational Efficiency:
 
-Call Duration: While average call durations are consistent across agents and topics, a deeper analysis revealed that specific agent-topic combinations (e.g., Agent Dan and payment-related calls) contribute disproportionately to longer call durations. These could be targeted for training or process improvement.
+Call Duration: While average call durations are consistent across agents and topics, deeper analysis reveals that specific agent-topic combinations (e.g., Agent Dan and payment-related calls) contribute disproportionately to longer call durations. These can be targeted for training or process improvement.
 
 Resolution Rate: Unanswered calls account for 70% of unresolved issues, as highlighted in the EDA. This is strongly correlated (0.9988) with call volume, indicating a need for better resource management during peak times.
 
 #### Customer Satisfaction:
-Unanswered calls are a major driver of poor satisfaction ratings, bringing down the average rating to 2.76. Resolved calls have a significantly higher average rating of 3.40.
+Unanswered calls are a major driver of poor satisfaction ratings, lowering the average rating to 2.76. Resolved calls have a significantly higher average rating of 3.40.
 
-Satisfaction ratings saw a steep decline in February and March, compared to January. This may indicate operational or seasonal challenges that need further exploration.
+Satisfaction ratings decline steeply in February and March compared to January. This indicates operational or seasonal challenges that need further exploration.
 
 Agent Performance:
 Performance across agents is fairly even, but specific agents and topics show weaknesses that can be addressed through training.
 There is a moderate positive correlation (0.54) between resolution rates and satisfaction ratings, suggesting that resolving issues efficiently is a key driver of satisfaction.
 
 #### Advanced Analysis:
-Regression analysis showed that call duration and the speed of answering calls have minimal impact on satisfaction ratings. The main exception is payment-related calls, which are shorter and more efficient.
-ANOVA analysis further supported that topics have little influence on call durations overall.
+Regression analysis shows that call duration and the speed of answering calls have minimal impact on satisfaction ratings. The main exception is payment-related calls, which are shorter and more efficient.
+ANOVA analysis further supports that topics have little influence on call durations overall.
 
 #### Recommendation
 
-1) Unanswered Calls - The biggest issue facing PWC is the volume of unanswered calls, this is impacting their KPIs; Satisfaction Rating and Resolution Rate. I'd recommend hiring additional agents to help handle the call volumes, especially during peak periods. 
+1) Unanswered Calls - The biggest issue PWC faces is the volume of unanswered calls, which impacts their KPIs: Satisfaction Rating and Resolution Rate. Hiring additional agents to handle call volumes, especially during peak periods, is recommended.
 
-2) Agent Training - Agents resolution rates at a high level are relatively positive but there are some combinations of topics and agents where there is room for improvement. I would recommend targeted training for these combinations. This should lead to overall improvements in resolution rates. Once the training is done paired t-Tests can be performed to see how beneficial the training was.
+2) Agent Training - While agents’ resolution rates are relatively positive, certain combinations of topics and agents show room for improvement. Targeted training for these combinations is recommended, which would lead to overall improvements in resolution rates. After the training, paired t-tests can be performed to evaluate its effectiveness.
 
-3) Data-Driven Decision Making - Use the heat maps and interactive visuals created to identify trends and performance gaps at a glance.
+3) Data-Driven Decision Making - Using the heat maps and interactive visuals created allows trends and performance gaps to be identified at a glance.
 
-Adopting these recommendations will have a very positive impact on PWCs KPI's
-
+Adopting these recommendations will positively impact PWC’s KPIs.
 
 
 

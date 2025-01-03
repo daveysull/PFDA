@@ -21,11 +21,11 @@ Table of Contents:
 
 #### 1. Introduction : 
 
-This notebook contains my analysis of PWC contact centre data. The original dataset contained 10 columns and 5,000 rows. The dates within the dataset ranged from January 1st to March 31st 2021. The dataset was downloaded from Kaggle, added to a database I created in MySQL and then was connected to via Python.
+This notebook contains my analysis of PWC contact centre data. The goal of this notebook is to identify trends as well as behaviours that may be impacting PWCs contact centre performance. The original dataset contained 10 columns and 5,000 rows. The dates within the dataset ranged from January 1st to March 31st 2021. The dataset was downloaded from Kaggle, added to a database I created in MySQL and then was connected to through Python.
 
 #### 2. Data Preperation :
 
-The first step of preperation was creating a database to store the data. This was done through a combination of bash scripts and MySQL queries. Once this was done I took the usual steps of setting the index, creating/dropping columns, dealing with null values, etc.
+The first step of preperation was creating a database to store the data. I did so in MySQL, added the excel data to the database via bash scripts and then loaded the data to my notebook using Python. A detailed description of what was done is in my notebook. Once this was done I took the usual steps of setting the index, creating/dropping columns, dealing with null values, etc.
 
 #### 3. EDA :
 
